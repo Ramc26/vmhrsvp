@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendee Data</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="./style.css">
+<!-- Add this script tag at the end of the body tag -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container-md attendeesList" style="margin-top: 15%;">
+  <ul class="list-group headder"><li class="list-group-item active">Attendees List</li></ul>  
+  <ul id="attendeesList" class="list-group"></ul>
+  </div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyALL242aB3thMoHpOos8-Ne4q9OVABdvkQ",
+    authDomain: "housewarming-rsvp-51eb5.firebaseapp.com",
+    databaseURL: "https://housewarming-rsvp-51eb5-default-rtdb.firebaseio.com",
+    projectId: "housewarming-rsvp-51eb5",
+    storageBucket: "housewarming-rsvp-51eb5.appspot.com",
+    messagingSenderId: "969003818225",
+    appId: "1:969003818225:web:3773ed545addb926d7dd50",
+    measurementId: "G-0LF8E1YLJB"
+  };
+firebase.initializeApp(firebaseConfig);
+
+var attendeesRef = firebase.database().ref("attendees");
+// // Function to fetch data from Firebase and display it on the webpage
+//     var RsvpAttendees= firebase.database().ref("attendees")
+//     RsvpAttendees.once("value",function(snapshot){
+//       var data=snapshot.val();
+//       for(let i in data){
+//         for(j in data[i]['names']){console.log(data[i]['names'][j]);}
+        
+//       }
+//     })
+  // Function to fetch data from Firebase and display it on the webpage
+
+    attendeesRef.once("value", function(snapshot) {
+      var attendeesData = snapshot.val();
+      let html=""
+
+      for (i in attendeesData){
+        // console.log(attendeesData[i]['names']);
+        var names=attendeesData[i]['names']
+        var count = attendeesData[i]['count']
+        html = html+ `<li class="list-group-item d-flex justify-content-between align-items-center">${names}<span class="badge badge-primary badge-pill">${count}</span></li>`;
+        document.getElementById("attendeesList").innerHTML = html;
+        // Display the list on the webpage
+      }
+      
+      // if (attendeesData) {
+      //   // Assuming attendeesData is an object with "names" property (as in your code)
+      //   const names = attendeesData.names;
+      //   let html = "";
+
+      //   // Loop through the names array and create a list
+      //   names.forEach((name) => {
+      //     html += `<li>${name}</li>`;
+      //   });
+
+      //   // Display the list on the webpage
+      //   document.getElementById("attendeesList").innerHTML = html;
+      // } else {
+      //   // Handle the case when there are no attendees
+      //   document.getElementById("attendeesList").innerHTML = "No attendees found.";
+      // }
+    });
+
+
+  // Call the function to display attendees when the page loads
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   displayAttendees();
+  // });
+
+
+// Call the function to display attendees when the page loads
+// document.addEventListener("DOMContentLoaded", () => {
+//   displayAttendees();
+// });
+
+
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RSVP Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Bungee+Spice&family=Cinzel+Decorative:wght@900&family=Cookie&family=Foldit&family=Great+Vibes&family=Heebo:wght@200&family=Kaushan+Script&family=Libre+Baskerville:ital@0;1&family=Monoton&family=Nabla&family=Tangerine:wght@400;700&family=Ysabeau+Infant:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Add necessary CSS and Bootstrap here -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="video-container">
+       <video autoplay loop muted>
+        <source src="4K.mp4" type="video/mp4">
+        <!-- You can add additional sources for different video formats -->
+    </video>
+    <div class="content">
+        <section class="invitation-section">
+        <!-- Add your background image, host names, and quote here -->
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col" style="background:rgba(255,255,255, 0.7); margin-left: 20%; margin-right: 20%;">
+                    <h2 style="font-family:Cookie;color:black;size:50px">Please Join Us as we make our new house a</h2>
+                    <h1>HOME</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation greeting section -->
+    <section class="invitation-section2" style="margin-top: 10%;">
+        <!-- Add your background image, host names, and quote here -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col" font-color="black">
+                    <p>You're Invited To</p>
+                    <h2>Veerendra & Mounusha 's</h2>
+                    <p>House Warming Party</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location/Venue section -->
+    <section class="location-section" style="margin-bottom: 15%;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h2 style="font-family: 'Tangerine', cursive; font-size: 50px;"><u>Location/Venue</u></h2>
+                    <p style="font-family: 'Ysabeau Infant', cursive; font-size: 50px;">2501 Spicebrush St, Melissa, TX 75454</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3335.4475378411717!2d-96.54662492498204!3d33.28095287345712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c72db05ea4943%3A0x8ee8ba141cbe3710!2s2501%20Spicebrush%20St%2C%20Melissa%2C%20TX%2075454!5e0!3m2!1sen!2sus!4v1691030186067!5m2!1sen!2sus" width="500" height="350" style="border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time of Event and Countdown Timer section -->
+    <section class="time-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h2 style="font-family: 'Tangerine', cursive; font-size: 50px;"><u>Time of Event</u></h2>
+                    <p>Date: August 26th, 2023</p>
+                    <p>Time: 12:00 PM</p>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20230826T170000Z%2F20230826T230000Z&details=Please%20Join%20Us%20as%20we%20make%20our%20new%20house%20a%20HOME&location=2501%20Spicebrush%20St%2C%20Melissa%2C%20TX%2075454&text=Veerendra%20%26%20Mounusha%27s%20House%20Warming%20Party" class="addToCalendar" target="black">Add to Calendar</a>
+                    <!-- Add the countdown timer here --><br><br>
+                    <div class="countdownTimer">
+                    <b><div id="countdownTimer"></div></b> More to the Drum Rolls 🥁</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Buttons section -->
+    <section class="rsvp-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h2 style="font-family: 'Nabla', cursive;
+ margin-top: 10%">Please RSVP By August 15th</h2><br><br>
+                    <button class="btn btn-primary" id="attendingBtn">I'll See you There 😃</button>
+                    <button class="btn btn-danger" id="cantMakeItBtn">Can't Make It 😕</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- RSVP Popup Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="rsvpModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">RSVP - Attending</h5>
+            </div>
+            <div class="modal-body">
+                <!-- Add a form to collect attendee names and count here -->
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="attendeeCount">Number of Attendees:</label>
+                        <input type="number" class="form-control" id="attendeeCount" name="attendeeCount" min="1" required>
+                    </div>
+                    <div id="attendeeNamesSection">
+                        <!-- Attendee name input fields will be dynamically added here based on the count -->
+                    </div><br>
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+     // Handle Attending button click
+         $("#attendingBtn").click(function () {
+                // Show the RSVP modal
+                $("#rsvpModal").modal("show");
+
+            });
+// Update attendee name input fields when the attendeeCount changes
+        $("#attendeeCount").on("input", function () {
+            const count = parseInt($(this).val());
+
+            let attendeeNamesHTML = "";
+            for (let i = 1; i <= count; i++) {
+                attendeeNamesHTML += `<div class="form-group">
+                                        <label for="attendeeName${i}">Attendee ${i} Name:</label>
+                                        <input type="text" class="form-control" id="attendeeName${i}" name="attendeeName${i}" required>
+                                    </div>`;
+            }
+
+            $("#attendeeNamesSection").html(attendeeNamesHTML);
+        });
+
+        // Update the countdown timer every second
+        function updateCountdownTimer() {
+        const targetDate = new Date("2023-08-26 12:00:00").getTime();
+        const now = new Date().getTime();
+        const timeDifference = targetDate - now;
+
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        const countdownTimer = document.getElementById("countdownTimer");
+        countdownTimer.innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+
+        if (timeDifference < 0) {
+            countdownTimer.innerHTML = "Event has started!";
+        }
+    }
+
+    // Update the countdown timer every second
+    setInterval(updateCountdownTimer, 1000);
+
+
+
+        // Handle RSVP form submission
+         $("#rsvpForm").submit(function (e) {
+            e.preventDefault();
+            const attendeeCount = parseInt($("#attendeeCount").val());
+            const attendeeNames = [];
+
+            // Get the names of attendees from the input fields and store them in an array
+            for (let i = 1; i <= attendeeCount; i++) {
+                const name = $(`#attendeeName${i}`).val();
+                attendeeNames.push(name);
+            }
+
+            console.log(attendeeCount,attendeeNames)
+            alert("after console")
+            // Store the attendee details in Firebase
+              const firebaseConfig = {
+    apiKey: "AIzaSyALL242aB3thMoHpOos8-Ne4q9OVABdvkQ",
+    authDomain: "housewarming-rsvp-51eb5.firebaseapp.com",
+    databaseURL: "https://housewarming-rsvp-51eb5-default-rtdb.firebaseio.com",
+    projectId: "housewarming-rsvp-51eb5",
+    storageBucket: "housewarming-rsvp-51eb5.appspot.com",
+    messagingSenderId: "969003818225",
+    appId: "1:969003818225:web:3773ed545addb926d7dd50",
+    measurementId: "G-0LF8E1YLJB"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+    var RsvpAttendees= firebase.database().ref("attendees")
+
+            RsvpAttendees.push({
+                count: attendeeCount,
+                names: attendeeNames,
+            });
+
+            // Show a confirmation message to the user
+            alert("Thank you for your response!");
+
+            // Close the RSVP modal
+            $("#rsvpModal").modal("hide");
+
+        });
+
+        // Handle Can't Make It button click
+        $("#cantMakeItBtn").click(function () {
+                // Here, you can store "Can't Make It" in Firebase or perform any other actions.
+                // For simplicity, let's just log to the console.
+                console.log("Can't Make It");
+
+                // Optionally, you can show a message to the user confirming their response.
+                alert("Thank you for your response!");
+            });
+
+        
+
+        
+    // });
+
+    // // ... Previous JavaScript code ...
+
+    //     $(document).ready(function () {
+    //         // Handle Attending button click
+           
+
+    //         // Handle RSVP form submission
+    //         $("#rsvpForm").submit(function (e) {
+    //             e.preventDefault();
+    //             const attendeeCount = $("#attendeeCount").val();
+
+    //             // Here, you can send the attendee details to Firebase or perform any other actions.
+    //             // For simplicity, let's just log the count to the console.
+    //             console.log("Number of attendees:", attendeeCount);
+
+    //             // Close the RSVP modal
+    //             $("#rsvpModal").modal("hide");
+    //         });
+
+    //         // Handle Can't Make It button click
+            
+    //     });
+    </script>
+</div></div>
+</body>
+
+</html>
