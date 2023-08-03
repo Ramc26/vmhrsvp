@@ -86,8 +86,8 @@
             <div class="row">
                 <div class="col">
                     <h2 style="font-family: 'Libre Baskerville', serif; font-size:40px">Please RSVP By August 15th</h2><br><br>
-                    <button class="btn btn-primary" id="attendingBtn">I'll See you There 😃</button>
-                    <button class="btn btn-danger" id="cantMakeItBtn">Can't Make It 😕</button>
+                    <button class="btn btn-primary" id="attendingBtn" style="font-family: 'Libre Baskerville', serif;">I'll See you There 😃</button>
+                    <button class="btn btn-danger" id="cantMakeItBtn" style="font-family: 'Libre Baskerville', serif;">Can't Make It 😕</button>
                 </div>
             </div>
         </div>
@@ -169,7 +169,7 @@
         countdownTimer.innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
 
         if (timeDifference < 0) {
-            countdownTimer.innerHTML = "Event has started!";
+            countdownTimer.innerHTML = "Event has started!!💃🏻🕺🏻";
         }
     }
 
@@ -211,7 +211,7 @@
             });
 
             // Show a confirmation message to the user
-            alert("Can't Wait to see you !!");
+            alert("Can't wait to see you!! 🤩");
 
             // Close the RSVP modal
             $("#rsvpModal").modal("hide");
@@ -225,7 +225,7 @@
                 console.log("Can't Make It");
 
                 // Optionally, you can show a message to the user confirming their response.
-                alert("Oh no! The party will miss for sure !!");
+                alert("Oh no! The party will miss you for sure !! 😢");
             });
 
         
