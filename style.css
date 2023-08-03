@@ -21,6 +21,17 @@ font-family: 'Tangerine', cursive;
 font-family: 'Ysabeau Infant', sans-serif;
 */
 
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
 .video-container {
     position: relative;
     width: 100%;
@@ -110,7 +121,7 @@ font-family: 'Kaushan Script', cursive;
 
 .invitation-section2 h2{
     text-align: center;
-    color:lightyellow;
+    color:palegoldenrod;
     font-size: 50px;
     font-family: 'Cinzel Decorative', cursive;
     
@@ -145,14 +156,34 @@ font-family: 'Kaushan Script', cursive;
     color: White;
 }
 
+.rsvp-section h2{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 50px;
+    color: White;
+}
+
+.rsvp-section button{
+    text-align: center;
+    margin-bottom: 10%;
+    font-size: 40px;
+    color: White;
+}
+
 .time-section p{
-    font-size: 20px;
+    font-size: 40px;
     font-family: 'Libre Baskerville', serif;
 
 }
 
+.contact-section{
+    text-align: center;
+    margin-bottom: 20%;
+    color: powderblue;
+}
+
 .countdownTimer{
-    font-family: 'Libre Baskerville';
+    font-family: Libre Baskerville;
     color: cadetblue;
     font-size: 30px;
 }
