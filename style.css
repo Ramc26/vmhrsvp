@@ -21,6 +21,13 @@ font-family: 'Tangerine', cursive;
 font-family: 'Ysabeau Infant', sans-serif;
 */
 
+  .sticky-div {
+        position: sticky;
+        top: 0;
+        /* Optional padding to add some space around the content */
+        z-index: 2;
+    }
+
 #background-video {
   width: 100vw;
   height: 100vh;
@@ -39,15 +46,15 @@ font-family: 'Ysabeau Infant', sans-serif;
     overflow: hidden;
 }
 
-video {
+/*video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Set a negative z-index to position the video behind the content */
-}
+    z-index: 1; /* Set a negative z-index to position the video behind the content 
+}*/
 
 
 /*
@@ -58,6 +65,11 @@ video {
     padding: 20px;
 }
 */
+
+.section {
+    opacity: 0;
+    transition: opacity 1s ease; /* Adjust the duration for the fade-in effect */
+}
 
 body {
      height: 100%;
@@ -167,6 +179,8 @@ font-family: 'Kaushan Script', cursive;
     text-align: center;
     margin-bottom: 10%;
     font-size: 40px;
+    font-family: 'Ysabeau Infant', sans-serif;
+
     color: White;
 }
 
@@ -184,7 +198,7 @@ font-family: 'Kaushan Script', cursive;
 
 .countdownTimer{
     font-family: Libre Baskerville;
-    color: cadetblue;
+    color: palegoldenrod;
     font-size: 30px;
 }
 

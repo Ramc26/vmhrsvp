@@ -14,11 +14,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 </head>
-<body>
-  <div class="container-md attendeesList" style="margin-top: 10%;">
-      <b><p style="font-family: Foldit; font-size: 50px;">You can Expect Total Attendees of <span id="TotalAttendeesCount"></span></p></b>
+<body style="background-color: #292522;">
+  <div class="container-md attendeesList">
+    <div class="sticky-sm-top" style="font-family: Foldit; font-size: 50px; background-color: #4d6160; color:#efd9b4;">
+      <b><p>You can Expect Total Attendees of <span id="TotalAttendeesCount"></span></p></b></div>
+      <div>
   <ul class="list-group headder"><li class="list-group-item active">Attendees List</li></ul>  
-  <ul id="attendeesList" class="list-group"></ul>
+  <ul id="attendeesList" class="list-group" style="margin-bottom: 1000px; overflow-y: auto;"></ul>
+</div>
   </div>
 
 
@@ -27,6 +30,23 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+
+  function showSectionsOneByOne() {
+    const sections = document.getElementsByClassName('section');
+    let delay = 0;
+
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        setTimeout(() => {
+            section.style.opacity = 1;
+        }, delay);
+
+        delay += 10; // Adjust this value to change the delay between sections (in milliseconds)
+    }
+}
+
+// Event listener to trigger the animation when the page loads
+window.addEventListener('load', showSectionsOneByOne);
   const firebaseConfig = {
     apiKey: "AIzaSyALL242aB3thMoHpOos8-Ne4q9OVABdvkQ",
     authDomain: "housewarming-rsvp-51eb5.firebaseapp.com",

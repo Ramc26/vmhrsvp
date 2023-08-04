@@ -9,6 +9,7 @@
     measurementId: "G-0LF8E1YLJB"
   };
 
+
   firebase.initializeApp(firebaseConfig);
   var RsvpAttendees= firebase.database().ref("attendees")
   document.getElementById('rsvpForm').addEventListner('submit',AddAttendees);
@@ -38,3 +39,26 @@
             // Close the RSVP modal
             $("#rsvpModal").modal("hide");
         }; 
+
+
+
+
+  // Text Appering effcts 
+
+
+  function showSectionsOneByOne() {
+    const sections = document.getElementsByClassName('section');
+    let delay = 0;
+
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        setTimeout(() => {
+            section.style.opacity = 1;
+        }, delay);
+
+        delay += 10; // Adjust this value to change the delay between sections (in milliseconds)
+    }
+}
+
+// Event listener to trigger the animation when the page loads
+window.addEventListener('load', showSectionsOneByOne);
