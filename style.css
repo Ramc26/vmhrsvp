@@ -3,10 +3,14 @@
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bodoni+Moda:opsz,wght@6..96,600&family=Borel&family=Bree+Serif&family=Bungee+Spice&family=Cinzel+Decorative:wght@900&family=Cookie&family=Foldit&family=Great+Vibes&family=Heebo:wght@200&family=Kaushan+Script&family=Libre+Baskerville:ital@0;1&family=Monoton&family=Nabla&family=Space+Grotesk:wght@600&family=Tangerine:wght@400;700&family=Ysabeau+Infant:wght@300;400&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Borel&family=Bungee+Spice&family=Cinzel+Decorative:wght@900&family=Cookie&family=Foldit&family=Great+Vibes&family=Heebo:wght@200&family=Kaushan+Script&family=Libre+Baskerville:ital@0;1&family=Monoton&family=Nabla&family=Tangerine:wght@400;700&family=Ysabeau+Infant:wght@300;400&display=swap');
+
 /*
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Bodoni Moda', serif;
 font-family: 'Borel', cursive;
+font-family: 'Bree Serif', serif;
 font-family: 'Bungee Spice', cursive;
 font-family: 'Cinzel Decorative', cursive;
 font-family: 'Cookie', cursive;
@@ -15,7 +19,6 @@ font-family: 'Great Vibes', cursive;
 font-family: 'Heebo', sans-serif;
 font-family: 'Kaushan Script', cursive;
 font-family: 'Libre Baskerville', serif;
-font-family: 'Monoton', cursive;
 font-family: 'Nabla', cursive;
 font-family: 'Tangerine', cursive;
 font-family: 'Ysabeau Infant', sans-serif;
@@ -98,24 +101,26 @@ body {
 }
 
 .invitation-section {
-    background-image: url('Home.webp');
+    background-image: url('Elements/FinalBG.webp');
     background-size: cover;
     background-position: center;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     padding: 100px 0;
     color: white;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 
 }
 
 .invitation-section h1 {
     font-family: 'Bungee Spice', cursive;
     font-size: 500%;
-    margin-bottom: 20px;
+/*    margin-bottom: 50%;*/
 
 }
 .invitation-section2{
-    margin-bottom: 15%;
+    margin-bottom: 10%;
     margin-top: 0px;
 
 }
@@ -126,7 +131,7 @@ body {
     color: White;
     font-size: 50px;
 /*    font-family: 'Great Vibes', cursive;*/
-font-family: 'Kaushan Script', cursive;
+font-family: 'Bodoni Moda', cursive;
 /*    font-family: 'Foldit', cursive;*/
     
 }
